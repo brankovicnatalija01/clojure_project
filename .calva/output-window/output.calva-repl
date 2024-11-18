@@ -77,3 +77,22 @@ clj꞉clojure-projekat.core꞉> 
    "stojanovic"
    {:creator "mikamika", :name "Stojan", :surname "Stojanovic", :email "stojan@example.com", :balance -200}}>
 clj꞉clojure-projekat.core꞉> 
+#'clojure-projekat.core/show-friends-by-user
+clj꞉clojure-projekat.core꞉> 
+; Jovan Jovanovic - jovan@example.com - Balance: 300
+nil
+clj꞉clojure-projekat.core꞉> 
+; Friend 'milic' added successfully.
+nil
+clj꞉clojure-projekat.core꞉> 
+; Jovan Jovanovic - jovan@example.com - Balance: 300
+; Mila Milic - mila@gmail.com - Balance: 300
+nil
+clj꞉clojure-projekat.core꞉> 
+; Friend 'jovanovic' added successfully.
+nil
+clj꞉clojure-projekat.core꞉> 
+; Jovan Jovanovic - jovan@example.com - Balance: 300
+; Mila Milic - mila@gmail.com - Balance: 300
+nil
+clj꞉clojure-projekat.core꞉> 
