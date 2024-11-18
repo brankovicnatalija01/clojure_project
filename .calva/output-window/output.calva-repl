@@ -37,3 +37,43 @@ You can configure this with the setting:
 ; 
 
 ; Starting Jack-in: (cd /home/natalija/clojure_project; lein update-in :dependencies conj '[nrepl,"1.1.1"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.47.1"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- with-profile +uberjar,+dev repl :headless)
+; Using host:port 127.0.0.1:40427 ...
+; Hooking up nREPL sessions ...
+; Connected session: clj
+; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
+nil
+clj꞉clojure-project.core꞉> 
+"Please see https://calva.io/output/#about-stdout-in-the-repl-window
+about why stdout printed to this file is prepended with `;` to be line comments."
+clj꞉clojure-project.core꞉> 
+; Jack-in done.
+clj꞉clojure-project.core꞉> 
+#'clojure-projekat.core/add-user
+clj꞉clojure-projekat.core꞉> 
+; User 'perapera' added successfully.
+nil
+clj꞉clojure-projekat.core꞉> 
+#<Atom@50c55f23: 
+  {"perapera" {:name "Pera", :surname "Peric", :password "password123", :email "pera.pera@example.com", :friends []}}>
+clj꞉clojure-projekat.core꞉> 
+; User 'anana' added successfully.
+nil
+clj꞉clojure-projekat.core꞉> 
+#<Atom@50c55f23: 
+  {"perapera" {:name "Pera", :surname "Peric", :password "password123", :email "pera.pera@example.com", :friends []},
+   "anana" {:name "Ana", :surname "Ilic", :password "password123", :email "ana.ana@example.com", :friends []}}>
+clj꞉clojure-projekat.core꞉> 
+#'clojure-projekat.core/add-friend
+clj꞉clojure-projekat.core꞉> 
+; User 'mikamika' added successfully.
+nil
+clj꞉clojure-projekat.core꞉> 
+; Friend 'jovanovic' added successfully.
+; Friend 'stojanovic' added successfully.
+nil
+clj꞉clojure-projekat.core꞉> 
+#<Atom@358247ec: 
+  {"jovanovic" {:creator "perapera", :name "Jovan", :surname "Jovanovic", :email "jovan@example.com", :balance 300},
+   "stojanovic"
+   {:creator "mikamika", :name "Stojan", :surname "Stojanovic", :email "stojan@example.com", :balance -200}}>
+clj꞉clojure-projekat.core꞉> 
