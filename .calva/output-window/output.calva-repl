@@ -119,3 +119,23 @@ clj꞉clojure-projekat.core꞉> 
    "anica123" {:creator "perapera", :name "Anica", :surname "Jovic", :email "anica@gmail.com", :balance 0},
    "nata123" {:creator "mikamika", :name "Natalija", :surname "Ilic", :email "natalija@gmail.com", :balance 0}}>
 clj꞉clojure-projekat.core꞉> 
+#<Atom@50c55f23: 
+  {"perapera" {:name "Pera", :surname "Peric", :password "password123", :email "pera.pera@example.com", :friends []},
+   "anana" {:name "Ana", :surname "Ilic", :password "password123", :email "ana.ana@example.com", :friends []},
+   "mikamika" {:name "Mika", :surname "Mikic", :password "password456", :email "mika.mika@example.com", :friends []}}>
+clj꞉clojure-projekat.core꞉> 
+; Syntax error compiling at (core.clj:74:1).
+; Unable to resolve symbol: remove-user in this context
+clj꞉clojure-projekat.core꞉> 
+#'clojure-projekat.core/remove-user
+clj꞉clojure-projekat.core꞉> 
+; User with username 'anaana' does not exist.
+nil
+clj꞉clojure-projekat.core꞉> 
+; User with username 'anana' has been removed.
+nil
+clj꞉clojure-projekat.core꞉> 
+#<Atom@50c55f23: 
+  {"perapera" {:name "Pera", :surname "Peric", :password "password123", :email "pera.pera@example.com", :friends []},
+   "mikamika" {:name "Mika", :surname "Mikic", :password "password456", :email "mika.mika@example.com", :friends []}}>
+clj꞉clojure-projekat.core꞉> 
