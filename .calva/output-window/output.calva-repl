@@ -96,3 +96,26 @@ clj꞉clojure-projekat.core꞉> 
 ; Mila Milic - mila@gmail.com - Balance: 300
 nil
 clj꞉clojure-projekat.core꞉> 
+#'clojure-projekat.core/remove-friend
+clj꞉clojure-projekat.core꞉> 
+; Friend with username 'jovanovic' has been removed.
+nil
+clj꞉clojure-projekat.core꞉> 
+#<Atom@358247ec: 
+  {"stojanovic"
+   {:creator "mikamika", :name "Stojan", :surname "Stojanovic", :email "stojan@example.com", :balance -200},
+   "milic" {:creator "perapera", :name "Mila", :surname "Milic", :email "mila@gmail.com", :balance 300}}>
+clj꞉clojure-projekat.core꞉> 
+; Friend 'anica123' added successfully.
+nil
+clj꞉clojure-projekat.core꞉> 
+; Friend 'nata123' added successfully.
+nil
+clj꞉clojure-projekat.core꞉> 
+#<Atom@358247ec: 
+  {"stojanovic"
+   {:creator "mikamika", :name "Stojan", :surname "Stojanovic", :email "stojan@example.com", :balance -200},
+   "milic" {:creator "perapera", :name "Mila", :surname "Milic", :email "mila@gmail.com", :balance 300},
+   "anica123" {:creator "perapera", :name "Anica", :surname "Jovic", :email "anica@gmail.com", :balance 0},
+   "nata123" {:creator "mikamika", :name "Natalija", :surname "Ilic", :email "natalija@gmail.com", :balance 0}}>
+clj꞉clojure-projekat.core꞉> 
