@@ -269,3 +269,40 @@ clj꞉clj-project.core꞉> 
 ; Date: 2024-11-21, Description: Lunch with Jovan, Amount: 200, Payer: perapera, Friend: jovanovic
 nil
 clj꞉clj-project.core꞉> 
+; 
+; FAIL Showing expenses for user works correctly at (core_test.clj:106)
+; Actual result did not agree with the checking function.
+; Actual result:
+; "Date: 2024-11-21, Description: Lunch with Milan, Amount: 200, Payer: mila123, Friend: milan123\nDate: 2024-11-22, Description: Coffee with Mila, Amount: 100, Payer: milan123, Friend: milan123\n"
+; Checking function: (contains "Date: 2024-11-21, Description: Lunch with Milan, Amount: 200, Payer: mila123, Friend: milan123\n\n                Date: 2024-11-22, Description: Coffee with Mila, Amount: 100, Payer: milan123, Friend: milan123\n")
+;     The checker said this about the reason:
+;         Best match found: [\D \a \t \e \: \space \2 \0 \2 \4 \- \1 \1 \- \2 \1 \, \space \D \e \s \c \r \i \p \t \i \o \n \: \space \L \u \n \c \h \space \w \i \t \h \space \M \i \l \a \n \, \space \A \m \o \u \n \t \: \space \2 \0 \0 \, \space \P \a \y \e \r \: \space \m \i \l \a \1 \2 \3 \, \space \F \r \i \e \n \d \: \space \m \i \l \a \n \1 \2 \3 \newline]
+false
+clj꞉clj-project.core-test꞉> 
+; 
+;(fact "Showing expenses for user works correctly"
+  ;; Clear the `expenses` atom to avoid duplicate entries
+  (reset! expenses [])
+
+  ;; Add expenses to the `expenses` atom
+  (swap! expenses conj
+         {:username "mila123"
+          :friend-username "milan123"
+          :amount 200
+          :payer "mila123"
+          :date "2024-11-21"
+          :description "Lunch with Milan"}
+         {:username "mila123"
+          :friend-username "milan123"
+          :amount 100
+          :payer "milan123"
+          :date "2024-11-22"
+          :description "Coffee with Mila"})
+
+  ;; Capture output and compare the actual output string directly
+  (str (with-out-str (show-expenses-for-user "mila123")))
+  => "Date: 2024-11-21, Description: Lunch with Milan, Amount: 200, Payer: mila123, Friend: milan123\nDate: 2024-11-22, Description: Coffee with Mila, Amount: 100, Payer: milan123, Friend: milan123\n")
+
+clj꞉clj-project.core-test꞉> 
+true
+clj꞉clj-project.core-test꞉> 

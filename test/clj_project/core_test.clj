@@ -80,4 +80,23 @@
                            :description "Lunch with Milan"}])
 )
 
+(fact "Showing expenses for user works correctly" 
+      (reset! expenses [])
 
+  ;; Add expenses to the `expenses` atom
+  (swap! expenses conj
+         {:username "mila123"
+          :friend-username "milan123"
+          :amount 200
+          :payer "mila123"
+          :date "2024-11-21"
+          :description "Lunch with Milan"}
+         {:username "mila123"
+          :friend-username "milan123"
+          :amount 100
+          :payer "milan123"
+          :date "2024-11-22"
+          :description "Coffee with Mila"})
+
+  (str (with-out-str (show-expenses-for-user "mila123")))
+  => "Date: 2024-11-21, Description: Lunch with Milan, Amount: 200, Payer: mila123, Friend: milan123\nDate: 2024-11-22, Description: Coffee with Mila, Amount: 100, Payer: milan123, Friend: milan123\n")
