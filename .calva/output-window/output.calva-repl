@@ -57,3 +57,115 @@ true
 clj꞉clj-project.core-test꞉> 
 true
 clj꞉clj-project.core-test꞉> 
+; Syntax error compiling at (core_test.clj:12:1).
+; No such var: clj-project.core-test/?form
+clj꞉clj-project.core-test꞉> 
+#'clj-project.core-test/test-users
+clj꞉clj-project.core-test꞉> 
+; Syntax error compiling at (core_test.clj:12:1).
+; No such var: clj-project.core-test/?form
+clj꞉clj-project.core-test꞉> 
+; User with username 'perapera' already exists.
+true
+clj꞉clj-project.core-test꞉> 
+; User with username 'perapera' has been removed.
+; 
+; FAIL Removing a user at (core_test.clj:19)
+; Expected:
+; false
+; Actual:
+; {}
+false
+clj꞉clj-project.core-test꞉> 
+true
+clj꞉clj-project.core-test꞉> 
+; User 'perapera' added successfully.
+true
+clj꞉clj-project.core-test꞉> 
+; User with username 'perapera' has been removed.
+; 
+; FAIL Removing a user at (core_test.clj:19)
+; Expected:
+; false
+; Actual:
+; {}
+false
+clj꞉clj-project.core-test꞉> 
+; User with username 'perapera' has been removed.
+; 
+; FAIL Removing an existing user at (core_test.clj:31)
+; Expected:
+; false
+; Actual:
+; {}
+false
+clj꞉clj-project.core-test꞉> 
+; User with username 'perapera' has been removed.
+; 
+; FAIL Removing an existing user at (core_test.clj:31)
+; Expected:
+; false
+; Actual:
+; {}
+false
+clj꞉clj-project.core-test꞉> 
+; Syntax error compiling at (core_test.clj:7:1).
+; No such var: clj-project.core-test/?form
+clj꞉clj-project.core-test꞉> 
+nil
+clj꞉clj-project.core-test꞉> 
+; Syntax error compiling at (core_test.clj:7:1).
+; No such var: clj-project.core-test/?form
+clj꞉clj-project.core-test꞉> 
+nil
+clj꞉clj-project.core-test꞉> 
+true
+clj꞉clj-project.core-test꞉> 
+; User 'perapera' added successfully.
+true
+clj꞉clj-project.core-test꞉> 
+; User with username 'perapera' has been removed.
+true
+clj꞉clj-project.core-test꞉> 
+; User with username 'perapera' has been removed.
+true
+clj꞉clj-project.core-test꞉> 
+; User 'perapera' added successfully.
+true
+clj꞉clj-project.core-test꞉> 
+; Friend 'anaana' added successfully.
+; 
+; FAIL Adding a new friend works correctly at (core_test.clj:29)
+; Actual result did not agree with the checking function.
+; Actual result:
+; {"anaana" {:balance 100
+;            :creator "perapera"
+;            :email "ana@gmail.com"
+;            :name "Ana"
+;            :surname "Anic"}}
+; Checking function: (contains {"anaana" {:balance 100, :creator "creator123", :email "ana@gmail.com", :name "Ana", :surname "Anic"}})
+;     The checker said this about the reason:
+;         Best match found: {}
+false
+clj꞉clj-project.core-test꞉> 
+; Friend 'anaana' added successfully.
+true
+clj꞉clj-project.core-test꞉> 
+; Friend with username 'friend123' has been removed.
+true
+clj꞉clj-project.core-test꞉> 
+; Friend with username 'anaana' has been removed.
+true
+clj꞉clj-project.core-test꞉> 
+; 
+; FAIL Showing friends by user works correctly at (core_test.clj:63)
+; Actual result did not agree with the checking function.
+; Actual result:
+; "No friends found for user: creator123\n"
+; Checking function: (contains "Milica Ilic - milica@gmail.com - Balance: 100\nJana Janic - jana@gmail.com - Balance: 200\n")
+;     The checker said this about the reason:
+;         Best match found: []
+false
+clj꞉clj-project.core-test꞉> 
+true
+clj꞉clj-project.core-test꞉> 
