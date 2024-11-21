@@ -16,9 +16,7 @@
       (println (str "User '" username "' added successfully.")))))
 
 ;(add-user "Pera" "Peric" "perapera" "password123" "pera.pera@example.com")
-
-users
-
+;users
 ;(add-user "Ana" "Ilic" "anana" "password123" "ana.ana@example.com")
 ;(add-user "Mika" "Mikic" "mikamika" "password456" "mika.mika@example.com")
 
@@ -33,11 +31,9 @@ users
                                  :balance balance})
   (println (str "Friend '" username "' added successfully.")))
 
-
 ;(add-friend "perapera" "jovanovic" "Jovan" "Jovanovic" "jovan@example.com" 300)
 ;(add-friend "mikamika" "stojanovic" "Stojan" "Stojanovic" "stojan@example.com" -200)
-
-friends
+;friends
 
 ;Korisnik zeli filtrira prijatelje prema korisniku koji ih je kreirao
 (defn show-friends-by-user [creator]
@@ -48,7 +44,6 @@ friends
         (println (:name friend) (:surname friend) "-" (:email friend) "- Balance:" (:balance friend))))))
 
 ;(show-friends-by-user "perapera")
-
 ;(add-friend "perapera" "milic" "Mila" "Milic" "mila@gmail.com" 300)
 
 ;Korisnik zeli da izbaci prijatelja iz liste prijatelja
@@ -60,14 +55,9 @@ friends
     (println (str "Friend with username '" username "' does not exist."))))
 
 ;(remove-friend "jovanovic")
-
-friends
-
+;friends
 ;(add-friend "perapera" "anica123" "Anica" "Jovic" "anica@gmail.com" 0)
 ;(add-friend "mikamika" "nata123" "Natalija" "Ilic" "natalija@gmail.com" 0)
-
-users
-
 
 ;Korisnik zeli da izbaci korisnika iz liste korisnika
 (defn remove-user [username]
@@ -78,3 +68,38 @@ users
     (println (str "User with username '" username "' does not exist."))))
 
 ;(remove-user "anana")
+
+(def expenses (atom [])) ; Global atom to store all expenses
+
+; Function to add an expense
+(defn add-expense [username friend-username amount payer date description]
+  (if (and (contains? @users username) ; Check if the user exists
+           (contains? @friends friend-username)) ; Check if the friend exists
+    (do
+      ; Add the expense to the global expenses list
+      (swap! expenses conj {:username username
+                            :friend-username friend-username
+                            :amount amount
+                            :payer payer
+                            :date date
+                            :description description})
+      ; Update the balance for the friend
+      (swap! friends update friend-username 
+             (fn [friend]
+               (update friend :balance 
+                       (fn [balance]
+                         (if (= payer username)
+                           (+ balance (/ amount 2)) ; Add half the amount if the user paid
+                           (- balance (/ amount 2))))))) ; Subtract half the amount if the friend paid
+      (println (str "Expense added. New balance for friend '" friend-username 
+                    "': " (:balance (@friends friend-username)))))
+    (println "Invalid user or friend username."))) ; Error if user or friend is invalid
+
+(add-user "Pera" "Peric" "perapera" "password123" "pera.pera@gmail.com")
+(add-friend "perapera" "jovanovic" "Jovan" "Jovanovic" "jovan@gmail.com" 0)
+
+(add-expense "perapera" "jovanovic" 200 "perapera" "2024-11-21" "Lunch with Jovan")
+(add-expense "perapera" "jovanovic" 100 "jovanovic" "2024-11-21" "Coffee with Pera")
+
+expenses
+friends

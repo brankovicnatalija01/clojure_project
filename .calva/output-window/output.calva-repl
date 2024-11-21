@@ -169,3 +169,36 @@ false
 clj꞉clj-project.core-test꞉> 
 true
 clj꞉clj-project.core-test꞉> 
+; Syntax error compiling if at (core.clj:90:24).
+; Too many arguments to if
+clj꞉clj-project.core꞉> 
+#'clj-project.core/add-expense
+clj꞉clj-project.core꞉> 
+; User with username 'perapera' already exists.
+; Friend 'jovanovic' added successfully.
+nil
+clj꞉clj-project.core꞉> 
+; Expense added. New balance for friend 'jovanovic': 100
+; Expense added. New balance for friend 'jovanovic': 50
+nil
+clj꞉clj-project.core꞉> 
+#<Atom@233760a2: 
+  [{:username "perapera",
+    :friend-username "jovanovic",
+    :amount 200,
+    :payer "perapera",
+    :date "2024-11-21",
+    :description "Lunch with Jovan"}
+   {:username "perapera",
+    :friend-username "jovanovic",
+    :amount 100,
+    :payer "jovanovic",
+    :date "2024-11-21",
+    :description "Coffee with Pera"}]>
+clj꞉clj-project.core꞉> 
+#<Atom@9354951: 
+  {"friend1" {:creator "user123", :name "Milica", :surname "Ilic", :email "milica@gmail.com", :balance 100},
+   "friend2" {:creator "user123", :name "Jana", :surname "Janic", :email "jana@gmail.com", :balance 200},
+   "friend3" {:creator "anotherUser", :name "Nikola", :surname "Nikolic", :email "nikola@gmail.com", :balance 50},
+   "jovanovic" {:creator "perapera", :name "Jovan", :surname "Jovanovic", :email "jovan@example.com", :balance 50}}>
+clj꞉clj-project.core꞉> 
