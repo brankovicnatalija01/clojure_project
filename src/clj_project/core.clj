@@ -3,6 +3,7 @@
 
 (def users (atom {}))
 
+
 ;Korisnik zeli da se registruje na sistem
 (defn add-user [name surname username password email]
   (if (contains? @users username)
@@ -71,12 +72,11 @@
 
 (def expenses (atom [])) ; Global atom to store all expenses
 
-; Function to add an expense
+; Korisnik želi da unese novi trošak
 (defn add-expense [username friend-username amount payer date description]
   (if (and (contains? @users username) ; Check if the user exists
            (contains? @friends friend-username)) ; Check if the friend exists
     (do
-      ; Add the expense to the global expenses list
       (swap! expenses conj {:username username
                             :friend-username friend-username
                             :amount amount
@@ -93,13 +93,5 @@
                            (- balance (/ amount 2))))))) ; Subtract half the amount if the friend paid
       (println (str "Expense added. New balance for friend '" friend-username 
                     "': " (:balance (@friends friend-username)))))
-    (println "Invalid user or friend username."))) ; Error if user or friend is invalid
+    (println "Invalid user or friend username."))) 
 
-(add-user "Pera" "Peric" "perapera" "password123" "pera.pera@gmail.com")
-(add-friend "perapera" "jovanovic" "Jovan" "Jovanovic" "jovan@gmail.com" 0)
-
-(add-expense "perapera" "jovanovic" 200 "perapera" "2024-11-21" "Lunch with Jovan")
-(add-expense "perapera" "jovanovic" 100 "jovanovic" "2024-11-21" "Coffee with Pera")
-
-expenses
-friends

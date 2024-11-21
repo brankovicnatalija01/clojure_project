@@ -202,3 +202,36 @@ clj꞉clj-project.core꞉> 
    "friend3" {:creator "anotherUser", :name "Nikola", :surname "Nikolic", :email "nikola@gmail.com", :balance 50},
    "jovanovic" {:creator "perapera", :name "Jovan", :surname "Jovanovic", :email "jovan@example.com", :balance 50}}>
 clj꞉clj-project.core꞉> 
+; Syntax error reading source at (REPL:80:1).
+; EOF while reading, starting at line 67
+clj꞉clj-project.core-test꞉> 
+; Syntax error reading source at (REPL:80:1).
+; EOF while reading, starting at line 67
+clj꞉clj-project.core-test꞉> 
+; Syntax error reading source at (REPL:79:1).
+; EOF while reading, starting at line 66
+clj꞉clj-project.core-test꞉> 
+; Expense added. New balance for friend 'jovanovic': 150
+; 
+; FAIL Adding a new expense works correctly at (core_test.clj:78)
+; Expected:
+; 100
+; Actual:
+; 150
+false
+clj꞉clj-project.core-test꞉> 
+; Expense added. New balance for friend 'jovanovic': 250
+true
+clj꞉clj-project.core-test꞉> 
+#'clj-project.core/users
+clj꞉clj-project.core꞉> 
+#<Atom@15022a75: {}>
+clj꞉clj-project.core꞉> 
+#'clj-project.core/users
+clj꞉clj-project.core꞉> 
+#'clj-project.core/friends
+clj꞉clj-project.core꞉> 
+#'clj-project.core/users
+clj꞉clj-project.core꞉> 
+#'clj-project.core/friends
+clj꞉clj-project.core꞉> 

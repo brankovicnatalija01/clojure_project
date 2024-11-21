@@ -64,3 +64,20 @@
   => (contains "Milica Ilic - milica@gmail.com - Balance: 100\nJana Janic - jana@gmail.com - Balance: 200\n"))
 
 
+(add-user "Mila" "Markovic" "mila123" "password123" "mila.markovic@gmail.com")
+(add-friend "mila123" "milan123" "Milan" "Jovanovic" "milan.jovanovic@gmail.com" 0)
+
+
+(fact "Adding a new expense works correctly"
+  ; Add a new expense
+  (add-expense "mila123" "milan123" 200 "mila123" "2024-11-21" "Lunch with Milan") 
+      
+  @expenses => (contains [{:username "mila123"
+                           :friend-username "milan123"
+                           :amount 200
+                           :payer "mila123"
+                           :date "2024-11-21"
+                           :description "Lunch with Milan"}])
+)
+
+
