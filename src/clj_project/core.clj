@@ -95,3 +95,15 @@
                     "': " (:balance (@friends friend-username)))))
     (println "Invalid user or friend username."))) 
 
+(defn show-expenses-for-user [username]
+  (let [user-expenses (filter #(= (:username %) username) @expenses)]
+    (if (empty? user-expenses)
+      (println (str "No expenses found for user: " username))
+      (doseq [expense user-expenses]
+        (println (str "Date: " (:date expense)
+                      ", Description: " (:description expense)
+                      ", Amount: " (:amount expense)
+                      ", Payer: " (:payer expense)
+                      ", Friend: " (:friend-username expense)))))))
+;expenses
+;(show-expenses-for-user "perapera")

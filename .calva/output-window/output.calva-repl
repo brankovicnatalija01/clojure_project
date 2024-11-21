@@ -235,3 +235,37 @@ clj꞉clj-project.core꞉> 
 clj꞉clj-project.core꞉> 
 #'clj-project.core/friends
 clj꞉clj-project.core꞉> 
+#<Atom@233760a2: 
+  [{:username "perapera",
+    :friend-username "jovanovic",
+    :amount 200,
+    :payer "perapera",
+    :date "2024-11-21",
+    :description "Lunch with Jovan"}
+   {:username "perapera",
+    :friend-username "jovanovic",
+    :amount 100,
+    :payer "jovanovic",
+    :date "2024-11-21",
+    :description "Coffee with Pera"}
+   {:username "perapera",
+    :friend-username "jovanovic",
+    :amount 200,
+    :payer "perapera",
+    :date "2024-11-21",
+    :description "Lunch with Jovan"}
+   {:username "perapera",
+    :friend-username "jovanovic",
+    :amount 200,
+    :payer "perapera",
+    :date "2024-11-21",
+    :description "Lunch with Jovan"}]>
+clj꞉clj-project.core꞉> 
+#'clj-project.core/show-expenses-for-user
+clj꞉clj-project.core꞉> 
+; Date: 2024-11-21, Description: Lunch with Jovan, Amount: 200, Payer: perapera, Friend: jovanovic
+; Date: 2024-11-21, Description: Coffee with Pera, Amount: 100, Payer: jovanovic, Friend: jovanovic
+; Date: 2024-11-21, Description: Lunch with Jovan, Amount: 200, Payer: perapera, Friend: jovanovic
+; Date: 2024-11-21, Description: Lunch with Jovan, Amount: 200, Payer: perapera, Friend: jovanovic
+nil
+clj꞉clj-project.core꞉> 
