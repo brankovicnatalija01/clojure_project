@@ -2,15 +2,22 @@
   (:require [clj-project.users :as users]
             [clj-project.friends :as friends]
             [clj-project.expenses :as expenses]
-            [clj-project.db :as db]))
+            [clj-project.db :as db]
+            [ring.adapter.jetty :as jetty]
+            [clj-project.api :as api]))
+
 
 (defn -main []
-  (println "Welcome to the Expense Sharing App!")
-  ;; Test functions
-  (users/add-user "Pera" "Peric" "perapera" "password123" "pera.pera@example.com")
-  (friends/add-friend "perapera" "jovanovic" "Jovan" "Jovanovic" "jovan@example.com" 300)
-  (expenses/add-expense "perapera" "jovanovic" 200 "perapera" "2025-01-01" "Dinner"))
+  ;; Povezivanje sa bazom
+  (db/connect!)
+
+  ;; Dodavanje inicijalnih podataka
+  (users/add-user-db "Jane" "Doe" "janedoe" "password123" "jane.doe@example.com")
+
+  ;; Pokretanje Jetty servera
+ (jetty/run-jetty (api/app) {:port 4000 :join? true})
+  (println "Server running on http://localhost:4000")
 
 
-(db/connect!)
-(db/disconnect!)
+  )
+            

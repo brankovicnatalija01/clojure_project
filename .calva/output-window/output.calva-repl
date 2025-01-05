@@ -37,7 +37,14 @@ You can configure this with the setting:
 ; 
 
 ; Starting Jack-in: (cd /home/natalija/clojure_project; lein update-in :dependencies conj '[nrepl,"1.1.1"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.47.1"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- with-profile +uberjar repl :headless)
-; Using host:port 127.0.0.1:39431 ...
+; Jacking in...
+; Connecting using "Leiningen" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+
+; Starting Jack-in: (cd /home/natalija/clojure_project; lein update-in :dependencies conj '[nrepl,"1.1.1"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.47.1"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- with-profile +uberjar repl :headless)
+; Using host:port 127.0.0.1:42135 ...
 ; Hooking up nREPL sessions ...
 ; Connected session: clj
 ; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
@@ -48,54 +55,11 @@ about why stdout printed to this file is prepended with `;` to be line comments.
 clj꞉clj-project.core꞉> 
 ; Jack-in done.
 clj꞉clj-project.core꞉> 
-#'clj-project.db/disconnect!
-clj꞉clj-project.db꞉> 
-nil
+#'clj-project.core/-main
 clj꞉clj-project.core꞉> 
-; Connected to MongoDB!
-nil
+#'clj-project.core/-main
 clj꞉clj-project.core꞉> 
-; Disconnected from MongoDB!
-nil
-clj꞉clj-project.core꞉> 
-; Syntax error compiling at (users.clj:26:7).
-; No such namespace: mc
-clj꞉user꞉> 
-; Syntax error reading source at (REPL:3:44).
-; Unmatched delimiter: )
-clj꞉clj-project.users꞉> 
-nil
-clj꞉clj-project.users꞉> 
-#'clj-project.users/add-user-db
-clj꞉clj-project.users꞉> 
-#'clj-project.users/get-user-db
-clj꞉clj-project.users꞉> 
-#'clj-project.users/remove-user-db
-clj꞉clj-project.users꞉> 
-; Connected to MongoDB!
-nil
-clj꞉clj-project.core꞉> 
-; User 'janedoe' added successfully to the database.
-nil
-clj꞉clj-project.core꞉> 
-; Found user in database: {:_id #object[org.bson.types.ObjectId 0x291ac1ec "677ae306aa92da97fd1408e0"], :name "Jane", :surname "Doe", :username "janedoe", :password "password123", :email "jane.doe@example.com", :friends []}
-{:_id #object[org.bson.types.ObjectId 0x291ac1ec "677ae306aa92da97fd1408e0"],
- :name "Jane",
- :surname "Doe",
- :username "janedoe",
- :password "password123",
- :email "jane.doe@example.com",
- :friends []}
-clj꞉clj-project.core꞉> 
-; User with username 'janedoe' has been removed from the database.
-nil
-clj꞉clj-project.core꞉> 
-; No user found in database with username 'janedoe'
-nil
-clj꞉clj-project.core꞉> 
-; Disconnected from MongoDB!
-nil
-clj꞉clj-project.core꞉> 
-; Execution error (NullPointerException) at monger.collection/find-one (collection.clj:175).
-; Cannot invoke "com.mongodb.DB.getCollection(String)" because "db" is null
-clj꞉clj-project.core꞉> 
+#'clj-project.api/app
+clj꞉clj-project.api꞉> 
+#'clj-project.api/app
+clj꞉clj-project.api꞉> 
