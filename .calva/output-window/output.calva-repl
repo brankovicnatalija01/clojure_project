@@ -58,3 +58,44 @@ clj꞉clj-project.core꞉> 
 ; Disconnected from MongoDB!
 nil
 clj꞉clj-project.core꞉> 
+; Syntax error compiling at (users.clj:26:7).
+; No such namespace: mc
+clj꞉user꞉> 
+; Syntax error reading source at (REPL:3:44).
+; Unmatched delimiter: )
+clj꞉clj-project.users꞉> 
+nil
+clj꞉clj-project.users꞉> 
+#'clj-project.users/add-user-db
+clj꞉clj-project.users꞉> 
+#'clj-project.users/get-user-db
+clj꞉clj-project.users꞉> 
+#'clj-project.users/remove-user-db
+clj꞉clj-project.users꞉> 
+; Connected to MongoDB!
+nil
+clj꞉clj-project.core꞉> 
+; User 'janedoe' added successfully to the database.
+nil
+clj꞉clj-project.core꞉> 
+; Found user in database: {:_id #object[org.bson.types.ObjectId 0x291ac1ec "677ae306aa92da97fd1408e0"], :name "Jane", :surname "Doe", :username "janedoe", :password "password123", :email "jane.doe@example.com", :friends []}
+{:_id #object[org.bson.types.ObjectId 0x291ac1ec "677ae306aa92da97fd1408e0"],
+ :name "Jane",
+ :surname "Doe",
+ :username "janedoe",
+ :password "password123",
+ :email "jane.doe@example.com",
+ :friends []}
+clj꞉clj-project.core꞉> 
+; User with username 'janedoe' has been removed from the database.
+nil
+clj꞉clj-project.core꞉> 
+; No user found in database with username 'janedoe'
+nil
+clj꞉clj-project.core꞉> 
+; Disconnected from MongoDB!
+nil
+clj꞉clj-project.core꞉> 
+; Execution error (NullPointerException) at monger.collection/find-one (collection.clj:175).
+; Cannot invoke "com.mongodb.DB.getCollection(String)" because "db" is null
+clj꞉clj-project.core꞉> 
