@@ -37,21 +37,7 @@ You can configure this with the setting:
 ; 
 
 ; Starting Jack-in: (cd /home/natalija/clojure_project; lein update-in :dependencies conj '[nrepl,"1.1.1"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.47.1"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- with-profile +uberjar repl :headless)
-; Jacking in...
-; Connecting using "Leiningen" project type.
-; You can make Calva auto-select this.
-;   - See https://calva.io/connect-sequences/
-; 
-
-; Starting Jack-in: (cd /home/natalija/clojure_project; lein update-in :dependencies conj '[nrepl,"1.1.1"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.47.1"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- with-profile +uberjar repl :headless)
-lein midje; Jacking in...
-; Connecting using "Leiningen" project type.
-; You can make Calva auto-select this.
-;   - See https://calva.io/connect-sequences/
-; 
-
-; Starting Jack-in: (cd /home/natalija/clojure_project; lein update-in :dependencies conj '[nrepl,"1.1.1"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.47.1"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- with-profile +uberjar repl :headless)
-; Using host:port 127.0.0.1:36371 ...
+; Using host:port 127.0.0.1:39431 ...
 ; Hooking up nREPL sessions ...
 ; Connected session: clj
 ; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
@@ -62,67 +48,13 @@ about why stdout printed to this file is prepended with `;` to be line comments.
 clj꞉clj-project.core꞉> 
 ; Jack-in done.
 clj꞉clj-project.core꞉> 
-lein midje
-; Syntax error compiling at (output.calva-repl:1:8379).
-; Unable to resolve symbol: midje in this context
-clj꞉clj-project.core꞉> 
-#'clj-project.core/-main
-clj꞉clj-project.core꞉> 
-; User 'perapera' added successfully.
+#'clj-project.db/disconnect!
+clj꞉clj-project.db꞉> 
 nil
 clj꞉clj-project.core꞉> 
-; Friend 'jovanovic' added successfully.
+; Connected to MongoDB!
 nil
 clj꞉clj-project.core꞉> 
-#'clj-project.core/-main
-clj꞉clj-project.core꞉> 
-#'clj-project.core/-main
-clj꞉clj-project.core꞉> 
-; Expense added. New balance for friend 'jovanovic': 400
-; Syntax error reading source at (REPL:11:86).
-; Unmatched delimiter: )
-clj꞉clj-project.core꞉> 
-#'clj-project.core/-main
-clj꞉clj-project.core꞉> 
-; Expense added. New balance for friend 'jovanovic': 500
+; Disconnected from MongoDB!
 nil
 clj꞉clj-project.core꞉> 
-true
-clj꞉clj-project.core-test꞉> ; User with username 'perapera' already exists.
-; 
-; FAIL Adding a new user works correctly at (core_test.clj:17)
-; Actual result did not agree with the checking function.
-; Actual result:
-; {"perapera" {:email "pera.pera@example.com"
-;              :friends []
-;              :name "Pera"
-;              :password "password123"
-;              :surname "Peric"}}
-; Checking function: (contains {"perapera" {:email "pera@gmail.com", :friends [], :name "Pera", :password "password123", :surname "Peric"}})
-;     The checker said this about the reason:
-;         Best match found: {}
-false
-clj꞉clj-project.core-test꞉> 
-; User with username 'perapera' has been removed.
-true
-clj꞉clj-project.core-test꞉> 
-; Creator 'perapera' does not exist in the system.
-; 
-; FAIL Adding a new friend works correctly at (core_test.clj:35)
-; Actual result did not agree with the checking function.
-; Actual result:
-; {"jovanovic" {:balance 500
-;               :creator "perapera"
-;               :email "jovan@example.com"
-;               :name "Jovan"
-;               :surname "Jovanovic"}}
-; Checking function: (contains {"anaana" {:balance 100, :creator "perapera", :email "ana@gmail.com", :name "Ana", :surname "Anic"}})
-;     The checker said this about the reason:
-;         Best match found: {}
-false
-clj꞉clj-project.core-test꞉> 
-; Friend with username 'anaana' has been removed.
-true
-clj꞉clj-project.core-test꞉> 
-true
-clj꞉clj-project.core-test꞉> 
