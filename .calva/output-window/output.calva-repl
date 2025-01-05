@@ -36,8 +36,22 @@ You can configure this with the setting:
 ;   - See https://calva.io/connect-sequences/
 ; 
 
-; Starting Jack-in: (cd /home/natalija/clj_project; lein update-in :dependencies conj '[nrepl,"1.1.1"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.47.1"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- with-profile +uberjar repl :headless)
-; Using host:port 127.0.0.1:39343 ...
+; Starting Jack-in: (cd /home/natalija/clojure_project; lein update-in :dependencies conj '[nrepl,"1.1.1"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.47.1"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- with-profile +uberjar repl :headless)
+; Jacking in...
+; Connecting using "Leiningen" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+
+; Starting Jack-in: (cd /home/natalija/clojure_project; lein update-in :dependencies conj '[nrepl,"1.1.1"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.47.1"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- with-profile +uberjar repl :headless)
+lein midje; Jacking in...
+; Connecting using "Leiningen" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+
+; Starting Jack-in: (cd /home/natalija/clojure_project; lein update-in :dependencies conj '[nrepl,"1.1.1"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.47.1"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- with-profile +uberjar repl :headless)
+; Using host:port 127.0.0.1:36371 ...
 ; Hooking up nREPL sessions ...
 ; Connected session: clj
 ; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
@@ -48,261 +62,67 @@ about why stdout printed to this file is prepended with `;` to be line comments.
 clj꞉clj-project.core꞉> 
 ; Jack-in done.
 clj꞉clj-project.core꞉> 
-#'clj-project.core/remove-user
+lein midje
+; Syntax error compiling at (output.calva-repl:1:8379).
+; Unable to resolve symbol: midje in this context
 clj꞉clj-project.core꞉> 
-#<Atom@76059b44: {}>
+#'clj-project.core/-main
 clj꞉clj-project.core꞉> 
 ; User 'perapera' added successfully.
-true
-clj꞉clj-project.core-test꞉> 
-true
-clj꞉clj-project.core-test꞉> 
-; Syntax error compiling at (core_test.clj:12:1).
-; No such var: clj-project.core-test/?form
-clj꞉clj-project.core-test꞉> 
-#'clj-project.core-test/test-users
-clj꞉clj-project.core-test꞉> 
-; Syntax error compiling at (core_test.clj:12:1).
-; No such var: clj-project.core-test/?form
-clj꞉clj-project.core-test꞉> 
-; User with username 'perapera' already exists.
-true
-clj꞉clj-project.core-test꞉> 
-; User with username 'perapera' has been removed.
-; 
-; FAIL Removing a user at (core_test.clj:19)
-; Expected:
-; false
-; Actual:
-; {}
-false
-clj꞉clj-project.core-test꞉> 
-true
-clj꞉clj-project.core-test꞉> 
-; User 'perapera' added successfully.
-true
-clj꞉clj-project.core-test꞉> 
-; User with username 'perapera' has been removed.
-; 
-; FAIL Removing a user at (core_test.clj:19)
-; Expected:
-; false
-; Actual:
-; {}
-false
-clj꞉clj-project.core-test꞉> 
-; User with username 'perapera' has been removed.
-; 
-; FAIL Removing an existing user at (core_test.clj:31)
-; Expected:
-; false
-; Actual:
-; {}
-false
-clj꞉clj-project.core-test꞉> 
-; User with username 'perapera' has been removed.
-; 
-; FAIL Removing an existing user at (core_test.clj:31)
-; Expected:
-; false
-; Actual:
-; {}
-false
-clj꞉clj-project.core-test꞉> 
-; Syntax error compiling at (core_test.clj:7:1).
-; No such var: clj-project.core-test/?form
-clj꞉clj-project.core-test꞉> 
 nil
-clj꞉clj-project.core-test꞉> 
-; Syntax error compiling at (core_test.clj:7:1).
-; No such var: clj-project.core-test/?form
-clj꞉clj-project.core-test꞉> 
+clj꞉clj-project.core꞉> 
+; Friend 'jovanovic' added successfully.
 nil
-clj꞉clj-project.core-test꞉> 
+clj꞉clj-project.core꞉> 
+#'clj-project.core/-main
+clj꞉clj-project.core꞉> 
+#'clj-project.core/-main
+clj꞉clj-project.core꞉> 
+; Expense added. New balance for friend 'jovanovic': 400
+; Syntax error reading source at (REPL:11:86).
+; Unmatched delimiter: )
+clj꞉clj-project.core꞉> 
+#'clj-project.core/-main
+clj꞉clj-project.core꞉> 
+; Expense added. New balance for friend 'jovanovic': 500
+nil
+clj꞉clj-project.core꞉> 
 true
-clj꞉clj-project.core-test꞉> 
-; User 'perapera' added successfully.
-true
-clj꞉clj-project.core-test꞉> 
-; User with username 'perapera' has been removed.
-true
-clj꞉clj-project.core-test꞉> 
-; User with username 'perapera' has been removed.
-true
-clj꞉clj-project.core-test꞉> 
-; User 'perapera' added successfully.
-true
-clj꞉clj-project.core-test꞉> 
-; Friend 'anaana' added successfully.
+clj꞉clj-project.core-test꞉> ; User with username 'perapera' already exists.
 ; 
-; FAIL Adding a new friend works correctly at (core_test.clj:29)
+; FAIL Adding a new user works correctly at (core_test.clj:17)
 ; Actual result did not agree with the checking function.
 ; Actual result:
-; {"anaana" {:balance 100
-;            :creator "perapera"
-;            :email "ana@gmail.com"
-;            :name "Ana"
-;            :surname "Anic"}}
-; Checking function: (contains {"anaana" {:balance 100, :creator "creator123", :email "ana@gmail.com", :name "Ana", :surname "Anic"}})
+; {"perapera" {:email "pera.pera@example.com"
+;              :friends []
+;              :name "Pera"
+;              :password "password123"
+;              :surname "Peric"}}
+; Checking function: (contains {"perapera" {:email "pera@gmail.com", :friends [], :name "Pera", :password "password123", :surname "Peric"}})
 ;     The checker said this about the reason:
 ;         Best match found: {}
 false
 clj꞉clj-project.core-test꞉> 
-; Friend 'anaana' added successfully.
+; User with username 'perapera' has been removed.
 true
 clj꞉clj-project.core-test꞉> 
-; Friend with username 'friend123' has been removed.
-true
+; Creator 'perapera' does not exist in the system.
+; 
+; FAIL Adding a new friend works correctly at (core_test.clj:35)
+; Actual result did not agree with the checking function.
+; Actual result:
+; {"jovanovic" {:balance 500
+;               :creator "perapera"
+;               :email "jovan@example.com"
+;               :name "Jovan"
+;               :surname "Jovanovic"}}
+; Checking function: (contains {"anaana" {:balance 100, :creator "perapera", :email "ana@gmail.com", :name "Ana", :surname "Anic"}})
+;     The checker said this about the reason:
+;         Best match found: {}
+false
 clj꞉clj-project.core-test꞉> 
 ; Friend with username 'anaana' has been removed.
 true
-clj꞉clj-project.core-test꞉> 
-; 
-; FAIL Showing friends by user works correctly at (core_test.clj:63)
-; Actual result did not agree with the checking function.
-; Actual result:
-; "No friends found for user: creator123\n"
-; Checking function: (contains "Milica Ilic - milica@gmail.com - Balance: 100\nJana Janic - jana@gmail.com - Balance: 200\n")
-;     The checker said this about the reason:
-;         Best match found: []
-false
-clj꞉clj-project.core-test꞉> 
-true
-clj꞉clj-project.core-test꞉> 
-; Syntax error compiling if at (core.clj:90:24).
-; Too many arguments to if
-clj꞉clj-project.core꞉> 
-#'clj-project.core/add-expense
-clj꞉clj-project.core꞉> 
-; User with username 'perapera' already exists.
-; Friend 'jovanovic' added successfully.
-nil
-clj꞉clj-project.core꞉> 
-; Expense added. New balance for friend 'jovanovic': 100
-; Expense added. New balance for friend 'jovanovic': 50
-nil
-clj꞉clj-project.core꞉> 
-#<Atom@233760a2: 
-  [{:username "perapera",
-    :friend-username "jovanovic",
-    :amount 200,
-    :payer "perapera",
-    :date "2024-11-21",
-    :description "Lunch with Jovan"}
-   {:username "perapera",
-    :friend-username "jovanovic",
-    :amount 100,
-    :payer "jovanovic",
-    :date "2024-11-21",
-    :description "Coffee with Pera"}]>
-clj꞉clj-project.core꞉> 
-#<Atom@9354951: 
-  {"friend1" {:creator "user123", :name "Milica", :surname "Ilic", :email "milica@gmail.com", :balance 100},
-   "friend2" {:creator "user123", :name "Jana", :surname "Janic", :email "jana@gmail.com", :balance 200},
-   "friend3" {:creator "anotherUser", :name "Nikola", :surname "Nikolic", :email "nikola@gmail.com", :balance 50},
-   "jovanovic" {:creator "perapera", :name "Jovan", :surname "Jovanovic", :email "jovan@example.com", :balance 50}}>
-clj꞉clj-project.core꞉> 
-; Syntax error reading source at (REPL:80:1).
-; EOF while reading, starting at line 67
-clj꞉clj-project.core-test꞉> 
-; Syntax error reading source at (REPL:80:1).
-; EOF while reading, starting at line 67
-clj꞉clj-project.core-test꞉> 
-; Syntax error reading source at (REPL:79:1).
-; EOF while reading, starting at line 66
-clj꞉clj-project.core-test꞉> 
-; Expense added. New balance for friend 'jovanovic': 150
-; 
-; FAIL Adding a new expense works correctly at (core_test.clj:78)
-; Expected:
-; 100
-; Actual:
-; 150
-false
-clj꞉clj-project.core-test꞉> 
-; Expense added. New balance for friend 'jovanovic': 250
-true
-clj꞉clj-project.core-test꞉> 
-#'clj-project.core/users
-clj꞉clj-project.core꞉> 
-#<Atom@15022a75: {}>
-clj꞉clj-project.core꞉> 
-#'clj-project.core/users
-clj꞉clj-project.core꞉> 
-#'clj-project.core/friends
-clj꞉clj-project.core꞉> 
-#'clj-project.core/users
-clj꞉clj-project.core꞉> 
-#'clj-project.core/friends
-clj꞉clj-project.core꞉> 
-#<Atom@233760a2: 
-  [{:username "perapera",
-    :friend-username "jovanovic",
-    :amount 200,
-    :payer "perapera",
-    :date "2024-11-21",
-    :description "Lunch with Jovan"}
-   {:username "perapera",
-    :friend-username "jovanovic",
-    :amount 100,
-    :payer "jovanovic",
-    :date "2024-11-21",
-    :description "Coffee with Pera"}
-   {:username "perapera",
-    :friend-username "jovanovic",
-    :amount 200,
-    :payer "perapera",
-    :date "2024-11-21",
-    :description "Lunch with Jovan"}
-   {:username "perapera",
-    :friend-username "jovanovic",
-    :amount 200,
-    :payer "perapera",
-    :date "2024-11-21",
-    :description "Lunch with Jovan"}]>
-clj꞉clj-project.core꞉> 
-#'clj-project.core/show-expenses-for-user
-clj꞉clj-project.core꞉> 
-; Date: 2024-11-21, Description: Lunch with Jovan, Amount: 200, Payer: perapera, Friend: jovanovic
-; Date: 2024-11-21, Description: Coffee with Pera, Amount: 100, Payer: jovanovic, Friend: jovanovic
-; Date: 2024-11-21, Description: Lunch with Jovan, Amount: 200, Payer: perapera, Friend: jovanovic
-; Date: 2024-11-21, Description: Lunch with Jovan, Amount: 200, Payer: perapera, Friend: jovanovic
-nil
-clj꞉clj-project.core꞉> 
-; 
-; FAIL Showing expenses for user works correctly at (core_test.clj:106)
-; Actual result did not agree with the checking function.
-; Actual result:
-; "Date: 2024-11-21, Description: Lunch with Milan, Amount: 200, Payer: mila123, Friend: milan123\nDate: 2024-11-22, Description: Coffee with Mila, Amount: 100, Payer: milan123, Friend: milan123\n"
-; Checking function: (contains "Date: 2024-11-21, Description: Lunch with Milan, Amount: 200, Payer: mila123, Friend: milan123\n\n                Date: 2024-11-22, Description: Coffee with Mila, Amount: 100, Payer: milan123, Friend: milan123\n")
-;     The checker said this about the reason:
-;         Best match found: [\D \a \t \e \: \space \2 \0 \2 \4 \- \1 \1 \- \2 \1 \, \space \D \e \s \c \r \i \p \t \i \o \n \: \space \L \u \n \c \h \space \w \i \t \h \space \M \i \l \a \n \, \space \A \m \o \u \n \t \: \space \2 \0 \0 \, \space \P \a \y \e \r \: \space \m \i \l \a \1 \2 \3 \, \space \F \r \i \e \n \d \: \space \m \i \l \a \n \1 \2 \3 \newline]
-false
-clj꞉clj-project.core-test꞉> 
-; 
-;(fact "Showing expenses for user works correctly"
-  ;; Clear the `expenses` atom to avoid duplicate entries
-  (reset! expenses [])
-
-  ;; Add expenses to the `expenses` atom
-  (swap! expenses conj
-         {:username "mila123"
-          :friend-username "milan123"
-          :amount 200
-          :payer "mila123"
-          :date "2024-11-21"
-          :description "Lunch with Milan"}
-         {:username "mila123"
-          :friend-username "milan123"
-          :amount 100
-          :payer "milan123"
-          :date "2024-11-22"
-          :description "Coffee with Mila"})
-
-  ;; Capture output and compare the actual output string directly
-  (str (with-out-str (show-expenses-for-user "mila123")))
-  => "Date: 2024-11-21, Description: Lunch with Milan, Amount: 200, Payer: mila123, Friend: milan123\nDate: 2024-11-22, Description: Coffee with Mila, Amount: 100, Payer: milan123, Friend: milan123\n")
-
 clj꞉clj-project.core-test꞉> 
 true
 clj꞉clj-project.core-test꞉> 

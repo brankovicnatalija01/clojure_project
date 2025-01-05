@@ -1,7 +1,13 @@
 (ns clj-project.core-test
-  (:require [clojure.test :refer :all]
-            [midje.sweet :refer :all]
-            [clj-project.core :refer :all]))
+  (:require
+   [clj-project.core :refer :all]
+   [clj-project.expenses :refer [add-expense show-expenses-for-user]]
+   [clj-project.expenses :as expenses]
+   [clj-project.friends :refer [add-friend remove-friend show-friends-by-user]]
+   [clj-project.friends :as friends]
+   [clj-project.users :refer [add-user remove-user users]]
+   ;[clojure.test :refer :all]
+   [midje.sweet :refer :all]))
 
 (fact "Basic function check"
   (+ 1 2) => 3)
@@ -26,7 +32,7 @@
 
 (fact "Adding a new friend works correctly"
   (add-friend "perapera" "anaana" "Ana" "Anic" "ana@gmail.com" 100)
-  @friends => (contains {"anaana" {:creator "perapera"
+  @friends/friends => (contains {"anaana" {:creator "perapera"
                                       :name "Ana"
                                       :surname "Anic"
                                       :email "ana@gmail.com"
@@ -34,17 +40,17 @@
 
 (fact "Removing an existing friend works correctly"
   ;; Add a friend to the `friends` atom before testing removal
-  (swap! friends assoc "anaana" {:creator "perapera"
+  (swap! friends/friends assoc "anaana" {:creator "perapera"
                                     :name "Ana"
                                     :surname "Anic"
                                     :email "ana@gmail.com"
                                     :balance 100}) 
   (remove-friend "anaana") 
-  (contains? @friends "anaana") => false)
+  (contains? @friends/friends "anaana") => false)
 
 (fact "Showing friends by user works correctly"
   ;; Add friends to the `friends` atom
-  (swap! friends assoc
+  (swap! friends/friends assoc
          "friend1" {:creator "user123"
                     :name "Milica"
                     :surname "Ilic"
@@ -72,7 +78,7 @@
   ; Add a new expense
   (add-expense "mila123" "milan123" 200 "mila123" "2024-11-21" "Lunch with Milan") 
       
-  @expenses => (contains [{:username "mila123"
+  @expenses/expenses => (contains [{:username "mila123"
                            :friend-username "milan123"
                            :amount 200
                            :payer "mila123"
@@ -81,10 +87,10 @@
 )
 
 (fact "Showing expenses for user works correctly" 
-      (reset! expenses [])
+      (reset! expenses/expenses [])
 
   ;; Add expenses to the `expenses` atom
-  (swap! expenses conj
+  (swap! expenses/expenses conj
          {:username "mila123"
           :friend-username "milan123"
           :amount 200
