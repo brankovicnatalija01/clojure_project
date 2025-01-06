@@ -13,3 +13,4 @@ pom.xml.asc
 .lsp/
 node_modules/
 package-lock.json
+.lsp/.cache/db.transit.json
