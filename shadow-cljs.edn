@@ -1,0 +1,12 @@
+{:source-paths ["src" "resources/public"]
+
+ 
+ :dependencies [[reagent "1.2.0"]
+                [cljs-ajax "0.8.4"]]
+ 
+ :builds {:app {:target :browser
+                :output-dir "resources/public/js"
+                :asset-path "/js"
+                :modules {:main {:init-fn clj-project.core/init}}}}
+
+ :dev-http {8000 "resources/public"}}

@@ -37,14 +37,7 @@ You can configure this with the setting:
 ; 
 
 ; Starting Jack-in: (cd /home/natalija/clojure_project; lein update-in :dependencies conj '[nrepl,"1.1.1"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.47.1"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- with-profile +uberjar repl :headless)
-; Jacking in...
-; Connecting using "Leiningen" project type.
-; You can make Calva auto-select this.
-;   - See https://calva.io/connect-sequences/
-; 
-
-; Starting Jack-in: (cd /home/natalija/clojure_project; lein update-in :dependencies conj '[nrepl,"1.1.1"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.47.1"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- with-profile +uberjar repl :headless)
-; Using host:port 127.0.0.1:42135 ...
+; Using host:port 127.0.0.1:46057 ...
 ; Hooking up nREPL sessions ...
 ; Connected session: clj
 ; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
@@ -55,11 +48,22 @@ about why stdout printed to this file is prepended with `;` to be line comments.
 clj꞉clj-project.core꞉> 
 ; Jack-in done.
 clj꞉clj-project.core꞉> 
-#'clj-project.core/-main
+; Execution error (FileNotFoundException) at clj-project.core/eval9009$loading (form-init5711817120168082117.clj:1).
+; Could not locate reagent/dom__init.class, reagent/dom.clj or reagent/dom.cljc on classpath.
+; 
+; Syntax error compiling at (src/clj_project/core.cljs:10:25).
+; No such namespace: js
+; 
+; Syntax error compiling at (src/clj_project/core.cljs:20:3).
+; No such namespace: rdom
 clj꞉clj-project.core꞉> 
-#'clj-project.core/-main
+; Execution error (FileNotFoundException) at clj-project.core/eval10349$loading (form-init5711817120168082117.clj:1).
+; Could not locate reagent/dom__init.class, reagent/dom.clj or reagent/dom.cljc on classpath.
+; 
+; Syntax error compiling at (src/clj_project/core.cljs:10:25).
+; No such namespace: js
+; 
+; Syntax error compiling at (src/clj_project/core.cljs:20:3).
+; No such namespace: rdom
 clj꞉clj-project.core꞉> 
-#'clj-project.api/app
-clj꞉clj-project.api꞉> 
-#'clj-project.api/app
-clj꞉clj-project.api꞉> 
+; nREPL Connection was closed
