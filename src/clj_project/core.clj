@@ -1,12 +1,8 @@
 (ns clj-project.core
   (:require [clj-project.models.users :as users]
-            [clj-project.models.friends :as friends]
-            [clj-project.models.expenses :as expenses]
             [clj-project.db.db :as db]
             [ring.adapter.jetty :as jetty]
-            [clj-project.api.api :as api]
-            [cljs-project.components.home-page :refer [home-page]]
-            [cljs-project.components.login-form :refer [login-form]]))
+            [clj-project.api.routes :as api]))
 
 
 (defn -main []

@@ -14,3 +14,8 @@ pom.xml.asc
 node_modules/
 package-lock.json
 .lsp/.cache/db.transit.json
+node_modules
+.shadow-cljs/
+*.js
+*.js.map
+resources/public/js/
