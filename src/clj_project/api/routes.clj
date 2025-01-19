@@ -5,12 +5,27 @@
             [ring.middleware.cors :refer [wrap-cors]] 
             [clj-project.models.users :as users]
             [clj-project.api.login :refer [login-handler]]
-            [clj-project.api.friends :refer [add-friend-handler]])) 
+            [clj-project.api.friends :refer [add-friend-handler]]
+            [ring.middleware.session.memory :refer [memory-store]])) 
+
+(defn wrap-session-debug [handler]
+  (fn [req]
+    (let [response (handler req)]
+      (println "Request session:" (:session req))
+      (println "Response session:" (:session response))
+      response)))
 
 (defn method-not-allowed-handler [req]
   {:status 405
    :headers {"Content-Type" "application/json"}
    :body {:error "Method not allowed"}})
+
+(defn options-handler [_]
+  {:status 204 ;; No Content
+   :headers {"Access-Control-Allow-Origin" "http://localhost:8000"
+             "Access-Control-Allow-Methods" "GET, POST, PUT, DELETE, OPTIONS"
+             "Access-Control-Allow-Headers" "Content-Type, Authorization"
+             "Access-Control-Allow-Credentials" "true"}})
 
 (defn auth-middleware [handler]
   (fn [req]
@@ -24,19 +39,26 @@
 (defn app []
   (-> (ring/ring-handler
        (ring/router
-        [["/api/login" {:post login-handler}] ;; Ruta za logovanje, bez auth-middleware
+        [["/api/login" {:post login-handler
+                        :options options-handler}] ;; Ruta za logovanje, bez auth-middleware
          ["/api/friends" {:post add-friend-handler
-                          :middleware [auth-middleware]}]]) ;; Ruta za prijatelje sa auth-middleware
+                          ;:middleware [auth-middleware]
+                          :options options-handler
+                          }]]) ;; Ruta za prijatelje sa auth-middleware
        (ring/create-default-handler
         {:method-not-allowed method-not-allowed-handler}))
-      (wrap-session) ;; Omogući sesije
+      wrap-session-debug
+      (wrap-session {:store (memory-store)
+               :cookie-attrs {:http-only true 
+                              :same-site :lax 
+                              :secure false}})
       (wrap-cors
        :access-control-allow-origin [#".*"]
-       :access-control-allow-methods [:get :post :put :delete]
-       :access-control-allow-headers ["Content-Type"])
+       :access-control-allow-methods [:get :post :put :delete :options]
+       :access-control-allow-headers ["Content-Type"]
+       )
       (middleware/wrap-json-body {:keywords? true})
       (middleware/wrap-json-response)))
-
 
 
 

@@ -37,7 +37,7 @@ You can configure this with the setting:
 ; 
 
 ; Starting Jack-in: (cd /home/natalija/clojure_project; lein update-in :dependencies conj '[nrepl,"1.1.1"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.47.1"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- with-profile +uberjar repl :headless)
-; Using host:port 127.0.0.1:46057 ...
+; Using host:port 127.0.0.1:46085 ...
 ; Hooking up nREPL sessions ...
 ; Connected session: clj
 ; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
@@ -48,22 +48,26 @@ about why stdout printed to this file is prepended with `;` to be line comments.
 clj꞉clj-project.core꞉> 
 ; Jack-in done.
 clj꞉clj-project.core꞉> 
-; Execution error (FileNotFoundException) at clj-project.core/eval9009$loading (form-init5711817120168082117.clj:1).
-; Could not locate reagent/dom__init.class, reagent/dom.clj or reagent/dom.cljc on classpath.
-; 
-; Syntax error compiling at (src/clj_project/core.cljs:10:25).
-; No such namespace: js
-; 
-; Syntax error compiling at (src/clj_project/core.cljs:20:3).
-; No such namespace: rdom
-clj꞉clj-project.core꞉> 
-; Execution error (FileNotFoundException) at clj-project.core/eval10349$loading (form-init5711817120168082117.clj:1).
-; Could not locate reagent/dom__init.class, reagent/dom.clj or reagent/dom.cljc on classpath.
-; 
-; Syntax error compiling at (src/clj_project/core.cljs:10:25).
-; No such namespace: js
-; 
-; Syntax error compiling at (src/clj_project/core.cljs:20:3).
-; No such namespace: rdom
-clj꞉clj-project.core꞉> 
+; Syntax error compiling at (src/cljs_project/components/home_page.cljs:4:1).
+; Unable to resolve symbol: add-friend-form in this context
+clj꞉cljs-project.components.home-page꞉> 
+; Execution error (FileNotFoundException) at cljs-project.components.home-page/eval9260$loading (form-init1255273683069973540.clj:1).
+; Could not locate cljs_project/components/add_friend_form__init.class, cljs_project/components/add_friend_form.clj or cljs_project/components/add_friend_form.cljc on classpath. Please check that namespaces with dashes use underscores in the Clojure file name.
+clj꞉cljs-project.components.home-page꞉> 
+; Execution error (FileNotFoundException) at cljs-project.components.home-page/eval10205$loading (form-init1255273683069973540.clj:1).
+; Could not locate cljs_project/components/add_friend_form__init.class, cljs_project/components/add_friend_form.clj or cljs_project/components/add_friend_form.cljc on classpath. Please check that namespaces with dashes use underscores in the Clojure file name.
+clj꞉cljs-project.components.home-page꞉> 
+nil
+clj꞉cljs-project.components.add-friend-form꞉> 
+; Syntax error compiling at (src/cljs_project/components/add_friend_form.cljs:7:19).
+; No such var: r/atom
+clj꞉cljs-project.components.add-friend-form꞉> 
+nil
+clj꞉cljs-project.components.add-friend-form꞉> 
+; Syntax error compiling at (src/cljs_project/components/add_friend_form.cljs:7:19).
+; No such var: r/atom
+clj꞉cljs-project.components.add-friend-form꞉> 
+; Syntax error compiling at (src/cljs_project/components/login_form.cljs:34:18).
+; No such var: r/atom
+clj꞉cljs-project.components.login-form꞉> 
 ; nREPL Connection was closed

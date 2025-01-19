@@ -32,24 +32,34 @@
       (println (str "Friend with username '" username "' has been removed.")))
     (println (str "Friend with username '" username "' does not exist."))))
 
+(defn valid-email? [email]
+  (re-matches #".+@.+\..+" email))
 
 (defn add-friend-db [creator username name surname email balance]
-  (let [existing-friend (mc/find-one-as-map @db "friends" {:creator creator :username username})]
-    (if existing-friend
-      {:status :exists ;; Friend already exists
-       :message (str "Friend '" username "' already exists for user '" creator "'")}
-      (do
-        (mc/insert @db "friends" {:creator creator
-                                  :username username
-                                  :name name
-                                  :surname surname
-                                  :email email
-                                  :balance balance})
-        (mc/update @db "users"
-                   {:username creator}
-                   {"$push" {:friends {:username username
-                                       :name name
-                                       :surname surname
-                                       :email email}}})
-        {:status :success 
-         :message (str "Friend '" username "' added successfully.")}))))
+  (if-not (valid-email? email)
+    {:status :invalid-email 
+     :message (str "Email '" email "' is not valid.")}
+    (let [existing-friend (mc/find-one-as-map @db "friends" 
+                                              {"$or" [{:creator creator :username username}
+                                                    {:creator creator :email email}]})]
+      (if existing-friend
+        (if (= (:email existing-friend) email)
+          {:status :exists 
+           :message (str "Email '" email "' already exists for user '" creator "'.")}
+          {:status :exists 
+           :message (str "Friend with username '" username "' already exists for user '" creator "'.")})
+        (do
+          (mc/insert @db "friends" {:creator creator
+                                    :username username
+                                    :name name
+                                    :surname surname
+                                    :email email
+                                    :balance balance})
+          (mc/update @db "users"
+                     {:username creator}
+                     {"$push" {:friends {:username username
+                                         :name name
+                                         :surname surname
+                                         :email email}}})
+          {:status :success
+           :message (str "Friend '" username "' added successfully.")})))))
