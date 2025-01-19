@@ -2,10 +2,10 @@
 (ns clj-project.api.friends
   (:require
    [clj-project.api.login :refer [current-creator]]
-   [clj-project.models.friends :as friends]))
+   [clj-project.models.friends :as friends :refer [get-friends-by-creator]]))
 
 (defn add-friend-handler [req]
-  (let [creator @current-creator ;; Dobijamo `:creator` iz sesije
+  (let [creator @current-creator 
         body (:body req)
         username (get body :username)
         name (get body :name)
@@ -31,4 +31,17 @@
        :headers {"Content-Type" "application/json"}
        :body {:message "Invalid request payload"}})))
 
-
+(defn get-friends-handler [req]
+  (let [creator @current-creator 
+        result (friends/get-friends-by-creator creator)]
+    (println "Creator from session get friends:" creator)
+    (case (:status result)
+      :success {:status 200
+                :headers {"Content-Type" "application/json"}
+                :body (:friends result)} 
+      :not-found {:status 404
+                  :headers {"Content-Type" "application/json"}
+                  :body {:message (:message result)}} 
+      {:status 500
+       :headers {"Content-Type" "application/json"}
+       :body {:message "Unexpected error occurred"}})))

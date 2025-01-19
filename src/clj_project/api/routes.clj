@@ -1,12 +1,12 @@
 (ns clj-project.api.routes
-(:require [reitit.ring :as ring]
-            [ring.middleware.json :as middleware]
-            [ring.middleware.session :refer [wrap-session]]
-            [ring.middleware.cors :refer [wrap-cors]] 
-            [clj-project.models.users :as users]
-            [clj-project.api.login :refer [login-handler]]
-            [clj-project.api.friends :refer [add-friend-handler]]
-            [ring.middleware.session.memory :refer [memory-store]])) 
+(:require
+ [clj-project.api.friends :refer [add-friend-handler get-friends-handler]]
+ [clj-project.api.login :refer [login-handler]]
+ [reitit.ring :as ring]
+ [ring.middleware.cors :refer [wrap-cors]]
+ [ring.middleware.json :as middleware]
+ [ring.middleware.session :refer [wrap-session]]
+ [ring.middleware.session.memory :refer [memory-store]])) 
 
 (defn wrap-session-debug [handler]
   (fn [req]
@@ -30,7 +30,7 @@
 (defn auth-middleware [handler]
   (fn [req]
     (println "Auth middleware triggered" (:session req))
-    (if-let [user (:username (:session req))] ;; Check if the user is logged in
+    (if-let [user (:username (:session req))] 
       (handler (assoc req :creator user)) 
       {:status 401
        :headers {"Content-Type" "application/json"}
@@ -40,11 +40,12 @@
   (-> (ring/ring-handler
        (ring/router
         [["/api/login" {:post login-handler
-                        :options options-handler}] ;; Ruta za logovanje, bez auth-middleware
+                        :options options-handler}] 
          ["/api/friends" {:post add-friend-handler
                           ;:middleware [auth-middleware]
                           :options options-handler
-                          }]]) ;; Ruta za prijatelje sa auth-middleware
+                          }]
+         ["/api/friends/:creator" {:get get-friends-handler}]]) 
        (ring/create-default-handler
         {:method-not-allowed method-not-allowed-handler}))
       wrap-session-debug

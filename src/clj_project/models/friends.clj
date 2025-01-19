@@ -63,3 +63,11 @@
                                          :email email}}})
           {:status :success
            :message (str "Friend '" username "' added successfully.")})))))
+
+(defn get-friends-by-creator [creator]
+  (let [friends (mc/find-maps @db "friends" {:creator creator})] 
+    (if (empty? friends)
+      {:status :not-found
+       :message (str "No friends found for creator '" creator "'.")}
+      {:status :success
+       :friends (map #(update % :_id str) friends)}))) 
