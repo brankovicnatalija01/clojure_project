@@ -3,6 +3,8 @@
             [ajax.core :refer [POST]]
             [cljs-project.components.app-state :refer [current-page]]))
 
+(def logged-in-username (r/atom nil))
+
 (defn modal [message on-close]
   [:div {:style {:position "fixed"
                  :top 0
@@ -55,6 +57,7 @@
                                     :response-format :raw
                                     :headers {"Content-Type" "application/json"}
                                     :handler (fn [_]
+                                               (reset! logged-in-username @username)
                                                (reset! modal-message "Successfully logged in!")
                                                (reset! current-page :home)) 
                                     :error-handler (fn [_]
@@ -83,7 +86,8 @@
          [:button {:type "submit"
                    :style {:width "100%"
                            :padding "10px"
-                           :background-color "#007BFF"
+                           :font-weight "bold"
+                           :background-color "#008000"
                            :color "white"
                            :border "none"
                            :border-radius "5px"
